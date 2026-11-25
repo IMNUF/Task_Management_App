@@ -18,21 +18,24 @@ main {
     background-color: rgb(126, 189, 240);
     display: flex;
     flex-direction: row;
-    align-content: flex-start;
-    justify-items: flex-end;
+    padding-top: 5rem;
     gap: 50px;
     height: 100vh;
     width: 100vw;
-    padding-left: 2rem;
-    padding-top: 4rem;
-   
+    margin: 0 auto;
+    padding-left: 1rem;
+    
 }
 
 h1 {
     font-size: 3rem;
     font-weight: 900;
     text-align: center;
-    text-decoration: underline;
+    height: 10rem;
+    border: 2px solid rgb(245, 219, 219);
+    box-shadow: 0 10px 1px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 2rem;
 }
 
 h2 {
@@ -48,9 +51,10 @@ h2 {
     padding: 3rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 10px 1px rgba(0, 0, 0, 0.1);
     border: 10px dotted aliceblue;
     border-radius: 20% 5%;
+
 }
 
 .filter-task {
@@ -60,7 +64,7 @@ h2 {
     padding: 3rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 1px rgba(0, 0, 0, 0.1);
     border: 10px dotted aliceblue;
     border-radius: 20% 5%; 
 }
@@ -69,6 +73,7 @@ h2 {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    
 }
 
 label {
@@ -116,7 +121,7 @@ button:focus-visible {
     color: #c0262d;
     background: transparent;
     border: 1px solid #c0262d;
-    border-radius: 50%;          /* makes it a circle */
+    border-radius: 50%;          
     cursor: pointer;
 }
 
@@ -143,6 +148,7 @@ button:focus-visible {
     border-radius: 1rem;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    max-width: fit-content;
 }
 
 .task-name { 
@@ -180,6 +186,9 @@ button:focus-visible {
     max-height: 80vh;     
     overflow-y: auto;     
     padding-right: 0.25rem;
+    border: 2px solid rgb(187, 230, 250);
+    box-shadow: 0 10px 1px rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
 }
 
 
