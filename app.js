@@ -139,7 +139,7 @@ function renderTasks() {
         const empty = document.createElement("li");
         empty.className = "empty";
         empty.textContent = tasks.length === 0
-            ? "No tasks yet. Add one above!"
+            ? "No tasks yet. Add one!"
             : "No tasks match this filter.";
         todoList.appendChild(empty);
         return;
