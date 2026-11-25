@@ -116,7 +116,7 @@ button:focus-visible {
     color: #c0262d;
     background: transparent;
     border: 1px solid #c0262d;
-    border-radius: 50%;          /* makes it a circle */
+    border-radius: 50%;          
     cursor: pointer;
 }
 
