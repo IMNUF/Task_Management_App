@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO APP</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1> TO DO LIST </h1>
+
+        <section class="add-task" aria-labelledby="add-task-section">
+            <h2 id="add-heading"> Add a task </h2>
+
+            <div class="field-container">
+                <label for="todoinput">Task Name</label>
+                <input type="text" id="todoInput" placeholder=" Enter A Task">
+            </div>
+
+            <div class="field-container">
+                <label for="inputCategory">Category</label>
+                <select id="inputCategory"> 
+                    <option value="School">School</option>
+                    <option value="Family">Family</option>
+                    <option value="Work">Work</option>
+                    <option value="Leisure">Leisure</option>
+                </select>
+            </div>
+
+            <div class="field-container">
+                <label for="deadline">deadline</label>
+                <input type="date" id="inputDeadline">
+            </div>
+
+            <div class="field-container">
+                <label for="status">Status</label>
+                <select id="inputStatus">
+                    <options value="In progress">In progress</options>
+                    <options value="Completed">Completed</options>
+                </select>
+            </div>
+
+            <button id="addButton"> Add Task To List </button>
+  
+        </section>
+
+        <section class="filter-task" aria-labelledby="filter-task-Section">
+            <h2 id="filter-heading"> Filter Tasks</h2>
+
+            <div class="field-container">
+                <label for="categoryFilter">Category</label>
+                <select id="categoryFilter">
+                    <option value="All">All</option>
+                    <option value="School">School</option>
+                    <option value="Family">Family</option>
+                    <option value="Work">Work</option>
+                    <option value="Leisure">Leisure</option>
+                </select>
+            </div>
+
+            <div class="field-container">
+                <label for="statusFilter">Status</label>
+                <select id="statusFilter">
+                    <option value="All">All</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Past Due">Past Due</option>
+                </select>     
+            </div>
+
+        </section>
+
+        <ul id="todoList">
+            <li>Test Task</li>
+        </ul>
+    </main>
+</body>
+</html>

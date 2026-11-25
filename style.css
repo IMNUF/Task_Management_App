@@ -1,0 +1,51 @@
+body {
+    margin: 0 auto;
+    background-color: blanchedalmond;
+    height: 100vh;
+    width: 100vw;
+    font-family: helvetica, sans-serif;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+main {
+    background-color: rgb(126, 189, 240);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    height: 60vh;
+    width: 40vw;
+    border: 10px dotted aliceblue;
+    border-radius: 20% 5%;
+}
+
+input {
+    width: 40%;
+    height: 5%;
+    margin: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+button {
+    width: 30%;
+    height: 5%;
+    margin: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+li {
+    padding: 10px 5px;
+    border: 2px solid rgb(58, 31, 4);
+    border-radius: 0.5rem;
+    margin-bottom: 10px;
+    list-style-type: none;
+     
+}
+
+
