@@ -12,7 +12,7 @@ const todoList = document.getElementById("todoList");
 // THE TASK ARRAY 
 let tasks = loadTasks();
 
-// LOCAL STORAGE
+// STORING TASKS IN LOCAL STORAGE AS OBJECTS 
 function saveTasks() {
     try {
         localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -20,6 +20,8 @@ function saveTasks() {
         console.log("unable to save task", error)
     }
 }
+
+// STORING TASKS IN LOCAL STORAGE AS OBJECTS 
 
 function loadTasks() {
     try {
@@ -130,7 +132,7 @@ function getFilteredTasks() {
 
 function renderTasks() {
 
-// CLEAR LIST AND  REBUILD FROM ARRAY 
+// CLEAR LIST AND REBUILD FROM ARRAY 
     todoList.innerHTML = "";
 
     const visibleTasks = getFilteredTasks();
@@ -139,7 +141,7 @@ function renderTasks() {
         const empty = document.createElement("li");
         empty.className = "empty";
         empty.textContent = tasks.length === 0
-            ? "No tasks yet. Add one!"
+            ? "No task yet. Add one!"
             : "No tasks match this filter.";
         todoList.appendChild(empty);
         return;
@@ -211,5 +213,9 @@ input.addEventListener("keydown", function(event) {
 
 //TO ENSURE SAVED TASK AND OVERDUE MARKING WORKS 
 
-checkOverdue();
-renderTasks();
+document.addEventListener("DOMContentLoaded", () => {
+    checkOverdue();
+    renderTasks();
+});
+
+
