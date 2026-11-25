@@ -132,7 +132,7 @@ function getFilteredTasks() {
 
 function renderTasks() {
 
-// CLEAR LIST AND  REBUILD FROM ARRAY 
+// CLEAR LIST AND REBUILD FROM ARRAY 
     todoList.innerHTML = "";
 
     const visibleTasks = getFilteredTasks();
