@@ -1,54 +1,4 @@
-// const input = document.getElementById("todoInput");
-// const button = document.getElementById("addButton");
-// const todoList = document.getElementById("todoList");
-
-
-
-// button.addEventListener("click", function(){
-   
-//     const task = input.value
-
-//     const existingTasks = todoList.querySelectorAll("li")
-//     // console.log("list of tasks", existingTasks)
-
-//     for (let i = 0; i < existingTasks.length; i++) {
-
-//         if (existingTasks[i].firstChild.textContent.trim() === task.trim()) {
-//             alert("This Already Exists in Your Tasks!");
-//             return;
-//         }
-//     }
-
-//     // Create a new DOM element
-//     const newTask = document.createElement("li")
-
-//     // Add input text in the newly created li
-//     newTask.textContent = task
-
-//     // Add the Delete button
-//     const deleteButton = document.createElement("button")
-
-//     // Add Delete button text
-//     deleteButton.textContent = "Delete"
-
-//     // Add Delete functionality to button
-//     deleteButton.addEventListener("click", function(){
-//         newTask.remove();
-//     })
-
-//     // Add the Delete button to the li
-//     newTask.appendChild(deleteButton)
-
-//     // Add the newly created li to the existing ul
-//     todoList.appendChild(newTask)
-
-//     // Reset the input
-//     input.value = ""
-
-// });
-
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+// ESTABLISHING THE DOM ELEMENTS
 const input = document.getElementById("todoInput");
 const categoryInput = document.getElementById("inputCategory");
 const deadlineInput = document.getElementById("inputDeadline");
@@ -59,8 +9,7 @@ const filterStatus = document.getElementById("statusFilter");
 const todoList = document.getElementById("todoList");
 
 
-const StatusUpdate = ["In Progress", "Completed", "Overdue"];
-
+// THE TASK ARRAY 
 let tasks = loadTasks();
 
 // LOCAL STORAGE
@@ -81,7 +30,6 @@ function loadTasks() {
     }
 }
 
-
 // OVERDUE TASK CHECK
 function getToday() {
     const now = new Date();
@@ -90,6 +38,7 @@ function getToday() {
     return now.getFullYear() + "-" + month + "-" + day;
 }
 
+// RECORDING TASK AS OVERDUE 
 function checkOverdue() {
     const today = getToday();
     let changed = false;
@@ -107,17 +56,17 @@ function checkOverdue() {
     }
 }
 
-// ADD TASK 
+// ADD TASK / DELETE AND UPDATE  
 function addTask() {
 
-// STORE
+// STORE THE INPUT 
     const name = input.value.trim();
 
     if (name === "") {
         alert("Please enter a task name.");
         return;
     }
-
+// DUPLICATE ENTRY ALERT 
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].name.toLowerCase() === name.toLowerCase()) {
             alert("This Task exists!");
@@ -181,6 +130,7 @@ function getFilteredTasks() {
 
 function renderTasks() {
 
+// CLEAR LIST AND  REBUILD FROM ARRAY 
     todoList.innerHTML = "";
 
     const visibleTasks = getFilteredTasks();
@@ -196,18 +146,25 @@ function renderTasks() {
     }
 
     visibleTasks.forEach(function(task) {
-   
+        
+// CREATE A NEW DOM ELEMENT  
         const li = document.createElement("li");
         li.className = "task " + task.status.toLowerCase().replace(" ", "-");
 
+// CREATE TASK NAME
         const name = document.createElement("span");
         name.className = "task-name";
         name.textContent = task.name;
 
+//CATEGORY AND DEADLINE 
         const details = document.createElement("span");
         details.className = "task-details";
         details.textContent = task.category + " | Due: " + (task.deadline || "No deadline");
 
+// ESTABLISHING STATUSES
+        const StatusUpdate = ["In Progress", "Completed", "Overdue"];
+
+//STATUS DROPDOWN 
         const select = document.createElement("select");
         select.setAttribute("aria-label", "Status for " + task.name);
         StatusUpdate.forEach(function(status) {
@@ -225,7 +182,8 @@ function renderTasks() {
         select.addEventListener("change", function() {
             updateStatus(task.id, select.value);
         });
-        
+
+//DELETE BUTTON         
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "x";
         deleteButton.className = "delete-btn";
@@ -234,11 +192,13 @@ function renderTasks() {
             deleteTask(task.id);
         });
 
+//APPEND TO LIST AND ADD TO UNORDERED LIST  
         li.append(name, details, select, deleteButton);
         todoList.appendChild(li);
     });
 }
 
+//ADD EVENT LISTENERS  
 button.addEventListener("click", addTask);
 filterCategory.addEventListener("change", renderTasks);
 filterStatus.addEventListener("change", renderTasks);
@@ -248,3 +208,8 @@ input.addEventListener("keydown", function(event) {
         addTask();
     }
 });
+
+//TO ENSURE SAVED TASK AND OVERDUE MARKING WORKS 
+
+checkOverdue();
+renderTasks();
